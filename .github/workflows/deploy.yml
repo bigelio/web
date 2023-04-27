@@ -6,10 +6,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: deploy application
-        run: |
-          sudo chmod 400 ac.pem
-          ssh -i "ac.pem" ubuntu@ec2-35-180-87-53.eu-west-3.compute.amazonaws.com
-          cd ~/web
-          git checkout main
-          git pull
+      - name: multiple command
+          uses: appleboy/ssh-action@v0.1.10
+          with:
+            host: ${{ secrets.HOST }}
+            username: ${{ secrets.USERNAME }}
+            key: ${{ secrets.KEY }}
+            port: ${{ secrets.PORT }}
+            script: |
+                cd ~/web
+                git checkout main
+                git pull
+      
