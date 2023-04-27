@@ -5,6 +5,7 @@ jobs:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - name: deploy application
         run: |
           sudo chmod 400 ac.pem
