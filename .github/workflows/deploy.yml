@@ -7,14 +7,13 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: multiple command
-          uses: appleboy/ssh-action@v0.1.10
-          with:
-            host: ${{ secrets.HOST }}
-            username: ${{ secrets.USERNAME }}
-            key: ${{ secrets.KEY }}
-            port: ${{ secrets.PORT }}
-            script: |
-                cd ~/web
-                git checkout main
-                git pull
-      
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
+          script: |
+            cd ~/web
+            git checkout main
+            git pull
